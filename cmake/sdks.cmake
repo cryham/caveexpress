@@ -18,10 +18,6 @@ macro(cp_get_sdk URL FILENAME)
 	endif()
 endmacro()
 
-if (STEAMLINK)
-	cp_git_clone_sdk(https://github.com/ValveSoftware/steamlink-sdk.git steamlink-sdk)
-endif()
-
 if (EMSCRIPTEN)
 	if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 		set(EMSDK_BIN emsdk.bat)
@@ -41,4 +37,3 @@ endif()
 if ((MSYS OR MINGW) AND LINUX)
 # TODO: install mxe
 endif()
-

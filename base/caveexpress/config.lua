@@ -1,7 +1,3 @@
-function isMobile()
-	return isAndroid() or isIOS();
-end
-
 defaultwidth = -1
 defaultheight = -1
 defaultfullscreen = true
@@ -20,14 +16,7 @@ defaultred = 8
 defaultgreen = 8
 defaultblue = 8
 
-if isSteamLink() then
-	defaultwidth = 1280
-	defaultheight = 720
-	defaultgamecontroller = true
-	defaultparticles = 0
-	defaultnetwork = true
-	defaultshowcursor = false
-elseif isAndroid() then
+if isAndroid() then
 	defaultpersister = "googleplay"
 	defaultreferencetimefactor = 1.5
 	defaultshowcursor = false
@@ -37,12 +26,6 @@ elseif isAndroid() then
 	defaultred = 6
 	defaultgreen = 5
 	defaultblue = 6
-elseif isMobile() then
-	defaultreferencetimefactor = 1.5
-	defaultshowcursor = false
-	defaultnetwork = true
-	defaultdamagethreshold = 5.0
-	defaultparticles = 0
 elseif isHTML5() then
 	defaultfrontend = "opengl"
 	defaultsoundengine = "dummy"
@@ -119,7 +102,7 @@ controllerbindings = {
 	},
 }
 
-if isMobile() then
+if isAndroid() then
 	keybindings = {
 		["ui"] = {
 			AC_BACK = "ui_pop",
@@ -173,6 +156,6 @@ if isDebug() then
 	keybindings["map"]["F"] = "finish"
 end
 
-if isMobile() and isDebug() then
+if isAndroid() and isDebug() then
 	keybindings["map"]["VOLUMEUP"] = "map_debug"
 end

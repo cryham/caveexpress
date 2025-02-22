@@ -1,7 +1,3 @@
-function isMobile()
-	return isAndroid() or isIOS()
-end
-
 defaultwidth = -1
 defaultheight = -1
 defaultfullscreen = true
@@ -18,14 +14,7 @@ defaultred = 8
 defaultgreen = 8
 defaultblue = 8
 
-if isSteamLink() then
-	defaultwidth = 1280
-	defaultheight = 720
-	defaultgamecontroller = true
-	defaultparticles = 0
-	defaultnetwork = true
-	defaultshowcursor = false
-elseif isAndroid() then
+if isAndroid() then
 	defaultshowcursor = false
 	defaultparticles = 0
 	defaultfpslimit = 30
@@ -34,18 +23,6 @@ elseif isAndroid() then
 	defaultred = 6
 	defaultgreen = 5
 	defaultblue = 6
-elseif isIOS() then
-	defaultshowcursor = false
-	defaultparticles = 0
-	defaultfpslimit = 30
-	rendertotexture = 0
-	defaultred = 6
-	defaultgreen = 5
-	defaultblue = 6
-elseif isMobile() then
-	defaultshowcursor = false
-	defaultparticles = 0
-	defaultfpslimit = 30
 elseif isHTML5() then
 	defaultnetwork = false
 	defaultfrontend = "opengl"
@@ -63,7 +40,7 @@ settings = {
 	grabmouse = true,
 	showcursor = defaultshowcursor,
 	debug = false,
-	showfps = not isMobile(),
+	showfps = not isAndroid(),
 	gamecontroller = defaultgamecontroller,
 	gamecontrollertriggeraxis = false,
 	sound = true,
@@ -115,7 +92,7 @@ controllerbindings = {
 	},
 }
 
-if isMobile() then
+if isAndroid() then
 	keybindings = {
 		["ui"] = {
 			AC_BACK = "ui_pop",

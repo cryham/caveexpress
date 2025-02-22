@@ -50,7 +50,6 @@ UIMainWindow::UIMainWindow (IFrontend *frontend) :
 		add(googlePlay);
 	}
 
-#ifndef STEAMLINK
 	if (System.supportsUserContent()) {
 		UINodeMainButton *editor = new UINodeMainButton(_frontend, tr("Editor"));
 		editor->addListener(UINodeListenerPtr(new OpenWindowListener(UI_WINDOW_EDITOR)));
@@ -60,7 +59,6 @@ UIMainWindow::UIMainWindow (IFrontend *frontend) :
 	UINodeMainButton *homepage = new UINodeMainButton(_frontend, tr("Homepage"));
 	homepage->addListener(UINodeListenerPtr(new OpenURLListener(_frontend, "http://caveproductions.org/")));
 	panel->add(homepage);
-#endif
 
 #if 0
 #ifdef __EMSCRIPTEN__

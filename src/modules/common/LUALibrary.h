@@ -28,13 +28,11 @@ private:
 	static int isAndroid (lua_State *L);
 	static int isWindows (lua_State *L);
 	static int isMacOSX (lua_State *L);
-	static int isIOS (lua_State *L);
 	static int isLinux (lua_State *L);
 	static int isHTML5 (lua_State *L);
 	static int isDebug (lua_State *L);
 	static int isHD (lua_State *L);
 	static int isTouch (lua_State *L);
-	static int isSteamLink (lua_State *L);
 
 public:
 	explicit LUA (bool debug = false);

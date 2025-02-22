@@ -27,12 +27,10 @@ void LUA::init (bool debug)
 	lua_register(_state, "isAndroid", isAndroid);
 	lua_register(_state, "isWindows", isWindows);
 	lua_register(_state, "isMacOSX", isMacOSX);
-	lua_register(_state, "isIOS", isIOS);
 	lua_register(_state, "isLinux", isLinux);
 	lua_register(_state, "isHTML5", isHTML5);
 	lua_register(_state, "isDebug", isDebug);
 	lua_register(_state, "isHD", isHD);
-	lua_register(_state, "isSteamLink", isSteamLink);
 	lua_register(_state, "isTouch", isTouch);
 
 	if (debug) {
@@ -494,16 +492,6 @@ int LUA::isMacOSX (lua_State *L)
 	return 1;
 }
 
-int LUA::isIOS (lua_State *L)
-{
-#if defined(__IPHONEOS__)
-	lua_pushboolean(L, true);
-#else
-	lua_pushboolean(L, false);
-#endif
-	return 1;
-}
-
 int LUA::isLinux (lua_State *L)
 {
 #if defined(__LINUX__)
@@ -552,16 +540,6 @@ int LUA::isTouch (lua_State *L)
 int LUA::isHD (lua_State *L)
 {
 #ifdef HD_VERSION
-	lua_pushboolean(L, true);
-#else
-	lua_pushboolean(L, false);
-#endif
-	return 1;
-}
-
-int LUA::isSteamLink (lua_State *L)
-{
-#if defined(STEAMLINK)
 	lua_pushboolean(L, true);
 #else
 	lua_pushboolean(L, false);
