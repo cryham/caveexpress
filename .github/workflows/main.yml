@@ -28,18 +28,15 @@ jobs:
 
     linux:
         runs-on: ubuntu-22.04
-        container: debian:experimental
 
         steps:
         - uses: actions/checkout@v4
 
         - name: Setup
           run: |
-            apt-get update
-            apt-get install -y git cmake build-essential libsdl2-dev libsdl2-mixer-dev libsdl2-net-dev \
+            apt-get install -y libsdl2-dev libsdl2-mixer-dev libsdl2-net-dev \
                  libyajl-dev libglm-dev libsdl2-image-dev libsqlite3-dev liblua5.4-dev zlib1g-dev \
                  pkg-config ninja-build libbox2d-dev=2.4*
-
 
         - name: Linux
           run: |
