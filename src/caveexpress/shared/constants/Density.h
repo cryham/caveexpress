@@ -2,7 +2,8 @@
 
 namespace caveexpress {
 
-#define DENSITY_WATER			1000.0f
+// #define DENSITY_WATER			1000.0f
+#define DENSITY_WATER			400.0f
 #define DENSITY_NPC				900.0f
 #define DENSITY_NPC_BLOWING		10000.0f
 #define DENSITY_NPC_FISH		550.0f
