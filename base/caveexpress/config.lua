@@ -15,6 +15,7 @@ defaultparticles = 10000
 defaultred = 8
 defaultgreen = 8
 defaultblue = 8
+rendertotexture = 1
 
 if isAndroid() then
 	defaultpersister = "googleplay"
@@ -52,12 +53,13 @@ settings = {
 	persister = defaultpersister,
 	network = defaultnetwork,
 	texturesize = defaulttexturesize,
+	rendertotexture = 1,
 	referencetimefactor = defaultreferencetimefactor,
 	damagethreshold = defaultdamagethreshold,
 	fruitcollectdelayforanewlife = 15000,
 	amountoffruitsforanewlife = 4,
 	fruithitpoints = 10,
-	waterparticle = false,
+	waterparticle = true,
 	npcflyingspeed = defaultnpcflyingspeed,
 	particles = defaultparticles,
 	red = defaultred,
