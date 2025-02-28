@@ -32,6 +32,7 @@ private:
 	std::set<FixturePair> _fixturePairs;
 
 	WorldParticle *_waterParticle;
+	float _lastSound;
 
 	void updateFixtures ();
 public:

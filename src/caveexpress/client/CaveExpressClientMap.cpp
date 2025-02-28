@@ -27,9 +27,11 @@
 
 namespace caveexpress {
 
-static const Color waterLineColor = { 0.99f, 0.99f, 1.0f, 1.0f };
-static const Color color = { (float)WATERCOLOR[0] / 255.0f, (float)WATERCOLOR[1] / 255.0f, (float)WATERCOLOR[2] / 255.0f, WATER_ALPHA
-		/ 255.0f };
+static const Color waterLineColor = 
+	{ (float)WATERCOLOR[0] / 255.0f * 1.2f, (float)WATERCOLOR[1] / 255.0f * 1.2f, (float)WATERCOLOR[2] / 255.0f * 1.2f, 1.f };
+	// WATER_ALPHA / 255.0f * 1.1f };
+static const Color color =
+	{ (float)WATERCOLOR[0] / 255.0f, (float)WATERCOLOR[1] / 255.0f, (float)WATERCOLOR[2] / 255.0f, WATER_ALPHA / 255.0f };
 
 CaveExpressClientMap::CaveExpressClientMap (int x, int y, int width, int height, IFrontend *frontend,
 		ServiceProvider& serviceProvider, int referenceTileWidth) :
@@ -171,7 +173,7 @@ int CaveExpressClientMap::renderCooldownDescription (uint32_t cooldownIndex, int
 	const int padding = 5;
 	if (Cooldowns::INVULVERABLE.id == cooldownIndex) {
 		const std::string& text = tr("Invulverable");
-		_font->print(text, colorWhite, x + w + padding, y);
+		_font->print(text, colorWhiteTrue, x + w + padding, y);
 		return 2 * padding + _font->getTextWidth(text);
 	}
 	return 0;

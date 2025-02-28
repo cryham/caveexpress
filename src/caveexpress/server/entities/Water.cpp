@@ -11,13 +11,18 @@
 
 namespace caveexpress {
 
+const float min_lastSound = 1.f;  // time, sec
+
 Water::Water (Map& map, float waterChangeSpeed, uint32_t waterRisingDelay, uint32_t waterFallingDelay) :
-		IEntity(EntityTypes::WATER, map), _waterChangeSpeed(waterChangeSpeed), _waterRisingDelay(waterRisingDelay), _waterFallingDelay(waterFallingDelay), _mapHeight(
-				0.0f), _waterRisingState(WATER_UNINITIALIZED), _currentHeightLevel(0.0f), _waterRisingTime(waterRisingDelay), _waterFallingTime(waterFallingDelay)
+		_lastSound(min_lastSound),
+		IEntity(EntityTypes::WATER, map), _waterChangeSpeed(waterChangeSpeed), _waterRisingDelay(waterRisingDelay),
+		_waterFallingDelay(waterFallingDelay), _mapHeight(0.0f), _waterRisingState(WATER_UNINITIALIZED),
+		_currentHeightLevel(0.0f), _waterRisingTime(waterRisingDelay), _waterFallingTime(waterFallingDelay)
 {
-	const b2Vec2 size(0.06f, 0.06f);
+	const b2Vec2 size(0.05f, 0.05f);  // 0.06
 	if (Config.getConfigVar(WATER_PARTICLE)->getBoolValue())
-		_waterParticle = new WorldParticle(map, WATER, 40, DENSITY_WATER / 1.05f, size, 1000);
+		// _waterParticle = new WorldParticle(map, WATER, 40, DENSITY_WATER / 1.05f, size, 1000);
+		_waterParticle = new WorldParticle(map, WATER, 200, DENSITY_WATER / 1.05f, size, 1000);
 	else
 		_waterParticle = nullptr;
 }
@@ -46,7 +51,10 @@ void Water::onContact (b2Contact* contact, IEntity* entity)
 		_fixturePairs.insert(std::make_pair(fixtureB, fixtureA));
 
 	entity->setTouchingWater(true);
-	_map.sendSound(entity->getVisMask(), SoundTypes::SOUND_WATER_IMPACT, entity->getPos());
+	if (_lastSound > min_lastSound)
+	{	_lastSound = 0.f;
+		_map.sendSound(entity->getVisMask(), SoundTypes::SOUND_WATER_IMPACT, entity->getPos());
+	}
 
 	// TODO: this is not yet working - might have to do this in the pre solve step
 	GameEvent.sendWaterImpact(entity->getPos().x, 1.0f);
@@ -68,7 +76,10 @@ void Water::endContact (b2Contact* contact, IEntity* entity)
 	else if (entityIsA)
 		_fixturePairs.erase(std::make_pair(fixtureB, fixtureA));
 
-	_map.sendSound(entity->getVisMask(), SoundTypes::SOUND_WATER_LEAVE, entity->getPos());
+	if (_lastSound > min_lastSound)
+	{	_lastSound = 0.f;
+		_map.sendSound(entity->getVisMask(), SoundTypes::SOUND_WATER_LEAVE, entity->getPos());
+	}
 	entity->setTouchingWater(false);
 	if (_waterParticle != nullptr)
 		_waterParticle->removeContact(entityIsA ? entityA : entityB);
@@ -135,6 +146,7 @@ void Water::updateFixtures ()
 void Water::update (uint32_t deltaTime)
 {
 	IEntity::update(deltaTime);
+	_lastSound += deltaTime / 1000.f;
 
 	updateFixtures();
 
