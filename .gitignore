@@ -34,5 +34,23 @@
 /.cproject
 /.project
 /*-source.tar*
-
 /.idea
+
+# cryham
+.git
+.cache
+
+CMake*
+*.cmake
+Debug
+Release
+Makefile
+
+# generated
+game.h
+*.in
+*.desktop
+*.appdata.*
+*.yaml
+*-editor
+cp-config.h
