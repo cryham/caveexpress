@@ -125,7 +125,7 @@ void ClientEntity::render (IFrontend *frontend, Layer layer, int scale, float zo
 		const BitmapFontPtr& font = UI::get().getFont();
 
 		renderDot(frontend, offsetX + basePosX, offsetY + basePosY, colorGreen);
-		renderDot(frontend, offsetX + posX, offsetY + posY, colorWhite);
+		renderDot(frontend, offsetX + posX, offsetY + posY, colorWhiteTrue);
 		if (ropeEntity && layer == LAYER_MIDDLE) {
 			renderDot(frontend, offsetX + ropeX1, offsetY + ropeY1, colorBlue);
 			renderDot(frontend, offsetX + ropeX2, offsetY + ropeY2, colorBrightBlue);
@@ -136,10 +136,10 @@ void ClientEntity::render (IFrontend *frontend, Layer layer, int scale, float zo
 
 		int fontY = _screenPosY;
 		if (!_animation->isNone()) {
-			font->print(_animation->name, colorWhite, _screenPosX, fontY);
+			font->print(_animation->name, colorWhiteTrue, _screenPosX, fontY);
 			fontY += font->getTextHeight(_animation->name);
 		}
-		font->print(string::toString(_angle), colorWhite, _screenPosX, fontY);
+		font->print(string::toString(_angle), colorWhiteTrue, _screenPosX, fontY);
 	}
 }
 

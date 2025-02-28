@@ -33,7 +33,7 @@ IntroBarDescription::IntroBarDescription(IFrontend* frontend, const Color& barCo
 	timeBar->setCurrent(100);
 	timeBar->setBarColor(barColor);
 	timeBar->setBorder(true);
-	timeBar->setBorderColor(colorWhite);
+	timeBar->setBorderColor(colorWhiteTrue);
 	timeBar->setSize(barWidth, barHeight);
 	add(timeBar);
 	UINodeLabel* label = new UINodeLabel(frontend, text, getFont(HUGE_FONT));
@@ -50,7 +50,7 @@ IntroBarDescription::IntroBarDescription(IFrontend* frontend, const std::string&
 	timeBar->setMax(100);
 	timeBar->setCurrent(100);
 	timeBar->setBorder(true);
-	timeBar->setBorderColor(colorWhite);
+	timeBar->setBorderColor(colorWhiteTrue);
 	timeBar->setSize(barWidth, barHeight);
 	add(timeBar);
 	UINodeLabel* label = new UINodeLabel(frontend, text, getFont(HUGE_FONT));

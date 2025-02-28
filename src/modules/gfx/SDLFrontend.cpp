@@ -247,7 +247,7 @@ bool SDLFrontend::loadTexture (Texture *texture, const std::string& filename)
 
 void SDLFrontend::resetColor ()
 {
-	setColor(colorWhite);
+	setColor(colorWhiteTrue);
 }
 
 void SDLFrontend::setColor (const Color& rgba)

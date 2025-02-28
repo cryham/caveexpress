@@ -125,7 +125,7 @@ int BitmapFont::printMax (const std::string& text, const Color& color, int x, in
 			const int fch = fontChr->getH();
 			_font->setRect(sourceRect.x + fcx, sourceRect.y + fcy, fcw, fch);
 			int angle;
-			if (rotate && _time > 0u) {
+			if (0 && rotate && _time > 0u) {
 				const int letterAngleMod = x + fontChr->getOX() + y + yShift + fontHeight - fontChr->getOY() + fcw + fch;
 				angle = RadiansToDegrees(cos(static_cast<double>(letterAngleMod * 100 + _time + _rand) / 100.0) / 6.0);
 			} else {
