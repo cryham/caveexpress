@@ -120,7 +120,8 @@ void NPC::update (uint32_t deltaTime)
 	if (isStruggle()) {
 		const int32_t d = _swimmingTime - _time;
 		if (d <= 0) {
-			setDying(nullptr);
+			setSwimmingIdle();
+			// setDying(nullptr);
 		}
 	} else if (isSwimming()) {
 		b2Vec2 v = getLinearVelocity();
