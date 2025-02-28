@@ -52,7 +52,7 @@ void CavePackerClientMap::setZoom (const float zoom) {
 }
 
 void CavePackerClientMap::renderLayer (int x, int y, Layer layer) const {
-	if (Config.renderToTexture()) {
+	if (1){  //Config.renderToTexture()) {
 		if (layer == LAYER_BACK) {
 			if (_target == nullptr || _targetEnts != _entities.size()) {
 				_targetEnts = _entities.size();

@@ -378,7 +378,7 @@ inline int ConfigManager::getClientSideParticleMaxAmount () const
 
 inline bool ConfigManager::renderToTexture() const
 {
-	return _renderToTexture->getBoolValue();
+	return 1; //_renderToTexture->getBoolValue();
 }
 
 #define Config ConfigManager::get()
