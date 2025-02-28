@@ -141,7 +141,10 @@ void CaveExpressClientMap::init (uint16_t playerID) {
 	if (xmas || ThemeTypes::isIce(*_theme)) {
 		// TODO: also take the non water height into account - so not have the amount of flakes
 		// on a small area when the water is rising
-		const int snowFlakes = getWidth() / 10;
+		const int snowFlakes = 
+			(int)randBetweenf(100.0f, 5000.0f);
+			// 9000;
+			// * getWidth() / 10;
 		for (int i = 0; i < snowFlakes; ++i) {
 			_particleSystem.spawn(ParticlePtr(new Snow(*this)));
 		}

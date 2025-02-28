@@ -9,4 +9,5 @@ public:
 	explicit Snow(IParticleEnvironment& env);
 	void run () override;
 	void init () override;
+	void random ();
 };
