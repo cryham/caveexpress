@@ -1,5 +1,5 @@
 function getName()
-	return "Wind 04"
+	return "Wind 4"
 end
 
 function onMapLoaded()

@@ -1,5 +1,5 @@
 function getName()
-	return "Map 19"
+	return "Ice3 19"
 end
 
 function onMapLoaded()

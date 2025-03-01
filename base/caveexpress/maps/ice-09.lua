@@ -1,5 +1,5 @@
 function getName()
-	return "Map 09"
+	return "Ice 9"
 end
 
 function initMap()

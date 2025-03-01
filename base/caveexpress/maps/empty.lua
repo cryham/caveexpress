@@ -1,5 +1,5 @@
 function getName()
-	return ""
+	return "empty"
 end
 
 function onMapLoaded()

@@ -1,5 +1,5 @@
 function getName()
-	return "Cave taxi"
+	return "In8 Cave taxi"
 end
 
 function onMapLoaded()

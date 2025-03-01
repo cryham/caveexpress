@@ -1,5 +1,5 @@
 function getName()
-	return "Map 08"
+	return "Rock 8"
 end
 
 function initMap()

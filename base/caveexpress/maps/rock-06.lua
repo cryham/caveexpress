@@ -1,5 +1,5 @@
 function getName()
-	return "Map 06"
+	return "Rock 6"
 end
 
 function onMapLoaded()

@@ -1,5 +1,5 @@
 function getName()
-	return "Second ICe 08"
+	return "Ice2 8"
 end
 
 function onMapLoaded()
