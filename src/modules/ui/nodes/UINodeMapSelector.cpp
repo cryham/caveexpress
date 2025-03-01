@@ -1,14 +1,16 @@
 #include "UINodeMapSelector.h"
+#include "common/IFrontend.h"
 #include "common/MapManager.h"
 #include "common/CommandSystem.h"
 #include "campaign/CampaignManager.h"
 #include "common/Commands.h"
+#include "common/Math.h"
 #include <SDL_assert.h>
 
 UINodeMapSelector::UINodeMapSelector (IFrontend *frontend, const IMapManager &mapManager, bool multiplayer, int cols, int rows) :
 		UINodeBackgroundSelector<std::string>(frontend, cols, rows), _campaignManager(nullptr), _mapManager(&mapManager), _multiplayer(multiplayer)
 {
-	setColsRowsFromTexture("map-icon-locked");
+	// setColsRowsFromTexture("map-icon-locked");
 	defaults();
 	setPaddingPixel(10);
 	reset();
@@ -18,7 +20,7 @@ UINodeMapSelector::UINodeMapSelector (IFrontend *frontend, CampaignManager &camp
 		UINodeBackgroundSelector<std::string>(frontend, cols, rows), _campaignManager(&campaignManager), _mapManager(
 				nullptr), _multiplayer(multiplayer)
 {
-	setColsRowsFromTexture("map-icon-locked");
+	// setColsRowsFromTexture("map-icon-locked");
 	defaults();
 	setPaddingPixel(10);
 	reset();
@@ -67,14 +69,14 @@ void UINodeMapSelector::renderSelectorEntry (int index, const std::string& data,
 		const CampaignPtr& campaignPtr = _campaignManager->getActiveCampaign();
 		const CampaignMap *map = campaignPtr->getMapById(data);
 		if (map != nullptr && !map->isLocked()) {
-			const BitmapFontPtr& font = getFont(MEDIUM_FONT);
+			const BitmapFontPtr& font = getFont(HUGE_FONT);
 			const std::string points = string::toString(map->getFinishPoints());
 			const int fontX = std::max(x, x + colWidth / 2 - font->getTextWidth(points) / 2);
 			const int fontHeight = font->getTextHeight(points);
-			const int fontY = y + fontHeight;
+			const int fontY = y + fontHeight/2;
 			if (t)
-				renderImage(t, x, y, colWidth, rowHeight - fontHeight, alpha);
-			font->printMax(points, colorWhite, fontX, fontY, colWidth);
+				renderImage(t, x, y, colWidth, rowHeight - fontHeight, alpha * 0.5f);
+			font->printMax(points, colorWhiteTrue, fontX, fontY, colWidth);
 		} else if (t) {
 			renderImage(t, x, y, colWidth, rowHeight, alpha);
 		}
@@ -86,13 +88,17 @@ void UINodeMapSelector::renderSelectorEntry (int index, const std::string& data,
 		return;*/
 
 	if (!title.empty()) {
-		const BitmapFontPtr& font = getFont(SMALL_FONT);
+		const BitmapFontPtr& font = getFont(title.length() > 15
+			? MEDIUM_FONT : HUGE_FONT);
+			// ? SMALL_FONT : MEDIUM_FONT);
 		const int textHeight = font->getTextHeight(title);
-		const int fontX = std::max(x, x + colWidth / 2 - font->getTextWidth(title) / 2);
+		// const int fontX = std::max(x, x + colWidth / 2 - font->getTextWidth(title) / 2);  // center
+		const int fontX = x;  // left
 		const int fontY = y + rowHeight - textHeight - 1;
-		_frontend->renderFilledRect(x, fontY - 1, colWidth, textHeight + 2, colorBlack);
+
+		_frontend->renderFilledRect(x, fontY - 1 -6, colWidth, textHeight + 2 +4, colorBlack);
 		//_frontend->renderRect(x, fontY - 1, colWidth, textHeight + 2, colorWhite);
-		font->printMax(title, colorWhite, fontX, fontY, colWidth);
+		font->printMax(title, colorWhiteTrue, fontX, fontY -4, colWidth);
 	}
 }
 
