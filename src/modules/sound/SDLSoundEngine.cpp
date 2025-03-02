@@ -24,7 +24,7 @@ SDLSoundEngine::SDLSoundEngine () :
 {
 	_listenerPosition = vec2_zero;
 	_volume = Config.getConfigVar("volume", string::toString(MIX_MAX_VOLUME));
-	_musicVolume = Config.getConfigVar("musicvolume", string::toString(MIX_MAX_VOLUME));
+	_musicVolume = Config.getConfigVar("musicvolume", "1"); //string::toString(MIX_MAX_VOLUME));
 }
 
 SDLSoundEngine::~SDLSoundEngine ()
