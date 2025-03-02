@@ -25,6 +25,7 @@ UIMainWindow::UIMainWindow (IFrontend *frontend, ServiceProvider& serviceProvide
 	_mammut->addSprite(mammutSprite);
 
 	const SpritePtr& grandPaSprite = UI::get().loadSprite("ui-npc-grandpa");
+	// const SpritePtr& grandPaSprite = UI::get().loadSprite("ui-npc-woman");  //?
 	_grandpa = new UINodeSprite(frontend, grandPaSprite->getMaxWidth(), grandPaSprite->getMaxHeight());
 	_grandpa->addSprite(grandPaSprite);
 
@@ -71,9 +72,9 @@ UIMainWindow::UIMainWindow (IFrontend *frontend, ServiceProvider& serviceProvide
 		panel->add(editor);
 	}
 
-	UINodeMainButton *homepage = new UINodeMainButton(_frontend, tr("Homepage"));
-	homepage->addListener(UINodeListenerPtr(new OpenURLListener(_frontend, "http://caveproductions.org/")));
-	panel->add(homepage);
+	// UINodeMainButton *homepage = new UINodeMainButton(_frontend, tr("Homepage"));
+	// homepage->addListener(UINodeListenerPtr(new OpenURLListener(_frontend, "http://caveproductions.org/")));
+	// panel->add(homepage);
 
 	UINodeMainButton *help = new UINodeMainButton(_frontend, tr("Help"));
 	help->addListener(UINodeListenerPtr(new OpenWindowListener(UI_WINDOW_HELP)));
@@ -87,18 +88,18 @@ UIMainWindow::UIMainWindow (IFrontend *frontend, ServiceProvider& serviceProvide
 #endif
 #endif
 
-	UINodeMainButton *quit = new UINodeMainButton(_frontend, tr("Quit"));
-#ifdef __EMSCRIPTEN__
-	quit->addListener(UINodeListenerPtr(new OpenURLListener(_frontend, "http://caveproductions.org/", false)));
-#else
-	quit->addListener(UINodeListenerPtr(new QuitListener()));
-#endif
-	panel->add(quit);
+// 	UINodeMainButton *quit = new UINodeMainButton(_frontend, tr("Quit"));
+// #ifdef __EMSCRIPTEN__
+// 	quit->addListener(UINodeListenerPtr(new OpenURLListener(_frontend, "http://caveproductions.org/", false)));
+// #else
+// 	quit->addListener(UINodeListenerPtr(new QuitListener()));
+// #endif
+// 	panel->add(quit);
 
 	add(panel);
 
 	Application& app = Singleton<Application>::getInstance();
-	UINodeLabel *versionLabel = new UINodeLabel(_frontend, app.getPackageName() + " " + app.getVersion());
+	UINodeLabel *versionLabel = new UINodeLabel(_frontend, app.getPackageName() + " 3.0");// + app.getVersion());
 	versionLabel->setAlignment(NODE_ALIGN_BOTTOM|NODE_ALIGN_RIGHT);
 	versionLabel->setColor(colorWhite);
 	versionLabel->setPadding(getScreenPadding());
