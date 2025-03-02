@@ -94,8 +94,9 @@ int BitmapFont::printMax (const std::string& text, const Color& color, int x, in
 	if (_softwareRendering) {
 		rotate = false;
 	}
+	Color clr;
 
-	_frontend->setColor(color);
+	// _frontend->setColor(color);
 	const int fontHeight = _fontDefPtr->getHeight();
 	const TextureRect sourceRect = _font->getSourceRect();
 	const FontChar* space = _fontDefPtr->getFontChar(' ');
@@ -124,14 +125,28 @@ int BitmapFont::printMax (const std::string& text, const Color& color, int x, in
 			const int fcw = fontChr->getW();
 			const int fch = fontChr->getH();
 			_font->setRect(sourceRect.x + fcx, sourceRect.y + fcy, fcw, fch);
-			int angle;
+			
+			int angle;  // off
 			if (0 && rotate && _time > 0u) {
 				const int letterAngleMod = x + fontChr->getOX() + y + yShift + fontHeight - fontChr->getOY() + fcw + fch;
 				angle = RadiansToDegrees(cos(static_cast<double>(letterAngleMod * 100 + _time + _rand) / 100.0) / 6.0);
 			} else {
 				angle = 0;
 			}
-			_frontend->renderImage(_font.get(), x + fontChr->getOX(), y + yShift + fontHeight - fontChr->getOY(), fcw, fch, angle, color[3]);
+			// colorize
+			const int ang = (x + fontChr->getOX()) - (y + yShift + fontHeight - fontChr->getOY()); //+ fcw + fch;
+			double cc[4] = {
+				sin((ang * 0.325 + _time * 0.121 + _rand + 1.2) / 22.0) * 0.1 + 0.9,
+				sin((ang * 0.412 + _time * 0.113 + _rand + 1.2) / 22.0) * 0.0 + 0.95,
+				sin((ang * 0.366 + _time * 0.135 + _rand + 1.2) / 22.0) * 0.2 + 0.8,
+				1.0 //cos((ang * 0.393 + _time * 0.148 + _rand + 1.2) / 22.0) * 0.1 + 0.9
+			};
+			for (int i=0; i < 4; ++i)
+				// clr[i] = color[i] * cc[i];
+				clr[i] = cc[i];
+			_frontend->setColor(clr);
+
+			_frontend->renderImage(_font.get(), x + fontChr->getOX(), y + yShift + fontHeight - fontChr->getOY(), fcw, fch, angle, clr[3]);
 		}
 		x += fontChr->getWidth();
 	}
