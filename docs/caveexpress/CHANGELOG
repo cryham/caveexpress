@@ -122,3 +122,18 @@ Version 2.5 (not yet released)
 * Updated lua
 * UTF8 support
 * Fixed missing window resize events
+
+
+Version 3.0 (CryHam fork mods)
+* Gameplay
+  * Faster side flying
+  * Going underwater
+  * Possible to fly with 4 packages (remove?)
+  * no package or NPC drops (off screen)
+* Water, particles
+  * Water color blue
+  * Water splash particles
+  * More snow and small particles
+  * Rain particles
+* Environments
+  * Desert and Jungle - 2 new (recolored)
