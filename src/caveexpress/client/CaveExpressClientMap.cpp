@@ -149,7 +149,7 @@ void CaveExpressClientMap::init (uint16_t playerID) {
 	if (ThemeTypes::isIce(*_theme) || dateutil::isXmas())
 	{
 		// const int snowFlakes = randBetweenf(0.1f, 2.5f) * getWidth();
-		const int snowFlakes = randBetweenf(3.1f, 3.5f) * getMapWidth() * 50;
+		const int snowFlakes = randBetweenf(0.2f, 3.5f) * getMapWidth() * 50;
 		Log::info(LOG_GAMEIMPL, "SNOW flakes: ******************* %i", snowFlakes);
 		for (int i = 0; i < snowFlakes; ++i) {
 			_particleSystem.spawn(ParticlePtr(new Snow(*this)));
@@ -159,7 +159,7 @@ void CaveExpressClientMap::init (uint16_t playerID) {
 	// if (ThemeTypes::isJungle(*_theme))
 	{
 		// const int rainDrops = randBetweenf(0.6f, 4.5f) * getWidth();
-		const int rainDrops = randBetweenf(3.6f, 4.5f) * getMapWidth() * 100;
+		const int rainDrops = randBetweenf(1.2f, 4.5f) * getMapWidth() * 100;
 		Log::info(LOG_GAMEIMPL, "RAIN drops: .................... %i", rainDrops);
 		for (int i = 0; i < rainDrops; ++i) {
 			_particleSystem.spawn(ParticlePtr(new Rain(*this)));
