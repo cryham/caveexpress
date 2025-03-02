@@ -285,7 +285,12 @@ void UINode::renderBack (int x, int y) const
 		return;
 	const int w = getRenderWidth(false);
 	const int h = getRenderHeight(false);
-	renderFilledRect(x + getRenderX(false), y + getRenderY(false), w, h, _backgroundColor);
+
+	renderFilledRect(x + getRenderX(false), 1 + y + getRenderY(false), w, h, _backgroundColor);
+	//*  frame []  cursor
+	// renderRect(x + getRenderX(false), 3 + y + getRenderY(false), w, h, _backgroundColor);
+	for (int i=0; i < 4; ++i)
+		renderRect(x+i + getRenderX(false), 3 + y+i + getRenderY(false), w-i*2, h-i*2, _backgroundColor);
 }
 
 void UINode::renderMiddle (int x, int y) const
