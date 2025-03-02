@@ -4,8 +4,10 @@
 #include "caveexpress/client/entities/ClientWindowTile.h"
 #include "caveexpress/client/entities/ClientCaveTile.h"
 #include "caveexpress/shared/network/messages/ProtocolMessages.h"
+#include "common/ThemeType.h"
 #include "particles/Bubble.h"
 #include "particles/Snow.h"
+#include "particles/Rain.h"
 #include "particles/Sparkle.h"
 #include "common/MapSettings.h"
 #include "network/messages/StopMovementMessage.h"
@@ -134,21 +136,33 @@ void CaveExpressClientMap::init (uint16_t playerID) {
 	ClientMap::init(playerID);
 	// TODO: also take the non water height into account - so not have the amount of bubbles
 	// on a small area when the water is rising
-	const int bubbles = getWidth() / 100;
+	
+	//  underwater
+	// const int bubbles = randBetweenf(0.02f, 0.04f) * getWidth();  // screen scaled-
+	const int bubbles = randBetweenf(0.02f, 0.04f) * getMapWidth() * 10;  // map scaled
+	Log::info(LOG_GAMEIMPL, "bubbles: ........... %i", bubbles);
 	for (int i = 0; i < bubbles; ++i) {
 		_particleSystem.spawn(ParticlePtr(new Bubble(*this)));
 	}
 
-	const bool xmas = dateutil::isXmas();
-	if (xmas || ThemeTypes::isIce(*_theme)) {
-		// TODO: also take the non water height into account - so not have the amount of flakes
-		// on a small area when the water is rising
-		const int snowFlakes = 
-			(int)randBetweenf(100.0f, 5000.0f);
-			// 9000;
-			// * getWidth() / 10;
+	//  weather
+	if (ThemeTypes::isIce(*_theme) || dateutil::isXmas())
+	{
+		// const int snowFlakes = randBetweenf(0.1f, 2.5f) * getWidth();
+		const int snowFlakes = randBetweenf(3.1f, 3.5f) * getMapWidth() * 50;
+		Log::info(LOG_GAMEIMPL, "SNOW flakes: ******************* %i", snowFlakes);
 		for (int i = 0; i < snowFlakes; ++i) {
 			_particleSystem.spawn(ParticlePtr(new Snow(*this)));
+		}
+	}
+	else
+	// if (ThemeTypes::isJungle(*_theme))
+	{
+		// const int rainDrops = randBetweenf(0.6f, 4.5f) * getWidth();
+		const int rainDrops = randBetweenf(3.6f, 4.5f) * getMapWidth() * 100;
+		Log::info(LOG_GAMEIMPL, "RAIN drops: .................... %i", rainDrops);
+		for (int i = 0; i < rainDrops; ++i) {
+			_particleSystem.spawn(ParticlePtr(new Rain(*this)));
 		}
 	}
 }
