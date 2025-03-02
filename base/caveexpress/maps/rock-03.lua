@@ -1,5 +1,5 @@
 function getName()
-	return "Rock 3"
+	return "Rock 3 slide 3pkg"
 end
 
 function initMap()

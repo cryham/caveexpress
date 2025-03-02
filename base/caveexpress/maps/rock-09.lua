@@ -1,5 +1,5 @@
 function getName()
-	return "Rock 9 Sleeping"
+	return "Rock 9 Sleeping 1pkg"
 end
 
 function onMapLoaded()

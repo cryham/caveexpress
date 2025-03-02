@@ -1,5 +1,5 @@
 function getName()
-	return "Ice 17"
+	return "Ice 17 geyser up"
 end
 
 function initMap()

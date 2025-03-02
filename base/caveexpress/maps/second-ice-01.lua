@@ -1,5 +1,5 @@
 function getName()
-	return "Ice2 1"
+	return "Ice2 1 rhino 3pkg"
 end
 
 function onMapLoaded()

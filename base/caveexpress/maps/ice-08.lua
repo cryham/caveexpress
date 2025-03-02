@@ -1,5 +1,5 @@
 function getName()
-	return "Ice 8"
+	return "Ice 8 throw 3= 4pkg"
 end
 
 function initMap()

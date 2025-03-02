@@ -1,5 +1,5 @@
 function getName()
-	return "Ice3 16 tricky pipe"
+	return "Ice3 16 tricky pipe 3pkg"
 end
 
 function onMapLoaded()

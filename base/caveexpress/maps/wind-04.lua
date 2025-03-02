@@ -1,5 +1,5 @@
 function getName()
-	return "Wind 4"
+	return "Wind 4 tricky long 2pkg"
 end
 
 function onMapLoaded()
