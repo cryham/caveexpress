@@ -1,6 +1,7 @@
 #include "PackageTarget.h"
 #include "caveexpress/server/map/Map.h"
 #include "caveexpress/server/entities/Package.h"
+#include "caveexpress/shared/CaveExpressSoundType.h"
 #include "caveexpress/shared/constants/Density.h"
 #include <SDL_assert.h>
 
@@ -66,6 +67,10 @@ void PackageTarget::update (uint32_t deltaTime)
 	IEntity::update(deltaTime);
 	if (_package == nullptr)
 		return;
+
+	b2Vec2 p = getPos();
+	p.x += 0.f;  p.y += 1.f;  // quieter
+	_map.sendSound(getVisMask(), SoundTypes::SOUND_PACKAGE_TARGET, p);
 
 	if (_joint == nullptr) {
 		applyJoint(_package);
