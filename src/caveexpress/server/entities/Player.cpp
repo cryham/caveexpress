@@ -591,8 +591,9 @@ bool Player::isCloseOverSolid (float distance) const
 
 bool Player::isLanded () const
 {
-	if (!b2Vec2Equals(getLinearVelocity(), b2Vec2_zero))
-		return false;
+	//*
+	// if (!b2Vec2Equals(getLinearVelocity(), b2Vec2_zero))
+	// 	return false;
 
 	if (isCloseOverSolid())
 		return true;
