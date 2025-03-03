@@ -1,5 +1,5 @@
 function getName()
-	return "Taxi 3 3runs"
+	return "Taxi 3 IV 3runs"
 end
 
 function onMapLoaded()

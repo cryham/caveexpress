@@ -37,7 +37,7 @@ function initMap()
 	map:setSetting("fishnpc", "true")
 	map:setSetting("flyingnpc", "false")
 	map:setSetting("gravity", "9.81")
-	map:setSetting("packagetransfercount", "3")
+	map:setSetting("packagetransfercount", "1") -- 3
 	map:addStartPosition("0", "0")
 	map:setSetting("points", "100")
 	map:setSetting("referencetime", "30")

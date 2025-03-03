@@ -124,6 +124,8 @@ function initMap()
 	map:addTile("tile-packagetarget-ice-01-idle", 5, 6)
 
 	map:addEmitter("item-package-ice", 4, 5, 1, 0, "")
+	map:addEmitter("item-package-ice", 4, 4, 1, 0, "")
+	map:addEmitter("item-package-ice", 4, 3, 1, 0, "")
 
 	map:setSetting("width", "6")
 	map:setSetting("height", "7")
