@@ -21,7 +21,7 @@ public:
 
 	bool unlock() const {
 		if (!supported()) {
-			Log::error(LOG_COMMON, "achievement %s is not supported", name.c_str());
+			// Log::error(LOG_COMMON, "achievement %s is not supported", name.c_str());
 			return false;
 		}
 		Log::error(LOG_COMMON, "unlocking achievement %s", name.c_str());

@@ -214,9 +214,9 @@ void Player::update (uint32_t deltaTime)
 		}
 		applyLinearImpulse(v);
 	} else {
-		const float maxSpeed = 8.0f;
+		const float maxSpeed = 8.0f;  //*
 		b2Vec2 force = getMass() * _acceleration;
-		force.x *= 2.5f;
+		force.x *= 2.5f;  //*
 		b2Vec2 velocity = getLinearVelocity();
 		const float speed = velocity.Normalize();
 		const b2Vec2 cappedV = std::min(speed, maxSpeed) * velocity;
@@ -325,7 +325,7 @@ void Player::resetAcceleration (Direction dir)
 	} else {
 		_acceleration = b2Vec2_zero;
 	}
-	if (b2Vec2Equals(_acceleration, b2Vec2_zero))
+	if (b2Vec2Equals(_acceleration, b2Vec2_zero))  //*
 		setAnimationType(Animations::ANIMATION_IDLE);
 }
 

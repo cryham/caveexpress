@@ -117,7 +117,7 @@ void ClientEntity::render (IFrontend *frontend, Layer layer, int scale, float zo
 	if (layer != LAYER_FRONT)
 		return;
 
-	if (Config.isDebug())
+	if (Config.isDebug())  //*
 		frontend->renderFilledRect(_screenPosX, _screenPosY, 4, 4, colorRed);
 
 	const bool debug = Config.isDebugEntity();
