@@ -13,6 +13,7 @@ UIMapOptionsWindow::UIMapOptionsWindow (IFrontend *frontend, ServiceProvider& se
 {
 	_onPush = _onPop = CMD_MAP_PAUSE;
 
+	//* ui after Esc in game
 	UINodeSettingsBackground *background = new UINodeSettingsBackground(frontend, "");
 	background->setAmountHorizontal(1);
 	add(background);
@@ -20,17 +21,14 @@ UIMapOptionsWindow::UIMapOptionsWindow (IFrontend *frontend, ServiceProvider& se
 	_panel = new UINode(frontend, "panelMapSettings");
 	_panel->setSize(background->getWidth(), background->getHeight());
 	_panel->setLayout(new UIVBoxLayout(0.01f, true));
+	_panel->setSize(0.4f);
+	_panel->setAlignment(NODE_ALIGN_MIDDLE);
 	_panel->alignTo(background, NODE_ALIGN_MIDDLE | NODE_ALIGN_CENTER);
 	add(_panel);
 
-	UINodeBackToRootButton* backToRoot = new UINodeBackToRootButton(frontend);
-	const float gap = std::max(0.01f, getScreenPadding());
-	backToRoot->alignTo(background, NODE_ALIGN_CENTER | NODE_ALIGN_TOP, gap);
-	_panel->add(backToRoot);
-
 	_restartMap = new UINodeMainButton(frontend, tr("Restart"));
 	_restartMap->setId("restart-map");
-	_restartMap->putUnder(backToRoot, 0.02f);
+	// _restartMap->putUnder(backToRoot, 0.02f);
 	_restartMap->setOnActivate(CMD_UI_POP ";" CMD_MAP_RESTART);
 	_panel->add(_restartMap);
 
@@ -39,8 +37,14 @@ UIMapOptionsWindow::UIMapOptionsWindow (IFrontend *frontend, ServiceProvider& se
 		return;
 	}
 
-	_backButton = new UINodeBackButton(frontend, background);
-	_panel->add(_backButton);
+	// _backButton = new UINodeBackButton(frontend, background);
+	// _panel->add(_backButton);
+
+	UINodeBackToRootButton* backToRoot = new UINodeBackToRootButton(frontend);
+	const float gap = std::max(0.01f, getScreenPadding());
+	backToRoot->alignTo(background, NODE_ALIGN_CENTER | NODE_ALIGN_TOP, gap);
+	backToRoot->putUnder(_restartMap, 0.02f);
+	_panel->add(backToRoot);	
 }
 
 void UIMapOptionsWindow::update (uint32_t deltaTime)
