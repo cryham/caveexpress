@@ -127,13 +127,23 @@ Version 2.5 (not yet released)
 Version 3.0 (CryHam fork mods)
 * Gameplay
   * Faster side flying
-  * Going underwater
+  * **Diving**, going underwater possible
   * Possible to fly with 4 packages (remove?)
-  * no package or NPC drops (off screen)
+  * no package drop by rhino (off screen)
+  * no NPC drop by player hit (remove?)
+* 2 new Environments
+  * Desert and Jungle (recolored)
 * Water, particles
   * Water color blue
   * Water splash particles
   * More snow and small particles
-  * Rain particles
-* Environments
-  * Desert and Jungle - 2 new (recolored)
+  * Rain particles (in Jungle)
+* Gui
+  * font **color animation**, no rotation  // colorize
+  * reworked Map Selector, **6 x 4**, bigger fonts
+  * added frame [] for current focus
+  * UIMapOptions default close, no back (faster)
+  * main menu no Quit or homapage
+* Defaults, for PC
+  * refraction on, music off, mouse speed 2.0
+* marked code change places with `//*`
