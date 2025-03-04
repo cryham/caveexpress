@@ -54,3 +54,13 @@ game.h
 *.yaml
 *-editor
 cp-config.h
+
+# no
+*.js
+*.java
+*.xcscheme
+*.tps
+*cavepacker*
+cavepacker/
+
+#*.lua
