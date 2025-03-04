@@ -77,25 +77,27 @@ inline bool Between (T value, T min, T max)
 
 typedef float Color[4];
 
-static const Color colorGrayAlpha40 = { 0.576f, 0.876f, 0.976f, 0.4f };
-static const Color colorGrayAlpha = { 0.576f, 0.876f, 0.976f, 0.8f };
-static const Color colorGray = { 0.7f, 0.5f, 0.5f, 1.0f };
+static const Color colorGrayAlpha40  = { 0.57f,0.87f,0.97f,0.4f };
+static const Color colorGrayAlpha    = { 0.4f, 0.8f, 0.7f, 0.7f };  // selected
+static const Color colorGray         = { 0.4f, 0.8f, 0.3f, 1.0f };
 static const Color colorWhiteAlpha80 = { 1.0f, 1.0f, 1.0f, 0.8f };
-static const Color colorWhite = { 0.95f, 0.8f, 0.6f, 1.0f };
-static const Color colorWhiteTrue = { 1.f, 1.f, 1.f, 1.0f };
-static const Color colorGreen = { 1.0f, 1.0f, 0.0f, 1.0f };
-static const Color colorBrightGreen = { 0.0f, 0.6f, 0.0f, 1.0f };
-static const Color colorBlue = { 0.0f, 0.0f, 1.0f, 1.0f };
-static const Color colorBrightBlue = { 0.0f, 0.0f, 0.6f, 1.0f };
-static const Color colorRed = { 1.0f, 0.0f, 0.0f, 1.0f };
-static const Color colorBrightRed = { 0.6f, 0.0f, 0.0f, 1.0f };
-static const Color colorBlack = { 0.0f, 0.0f, 0.0f, 1.0f };
-static const Color colorDark = { 0.2f, 0.2f, 0.2f, 1.0f };
-static const Color colorNull = { 0.0f, 0.0f, 0.0f, 0.0f };
-static const Color backgroundColor = { 1.0f, 1.0f, 1.0f, 0.2f };
-static const Color highlightColor = { 1.0f, 0.6f, 0.0f, 0.6f };
-static const Color colorYellow = { 0.0f, 1.0f, 1.0f, 1.0f };
-static const Color colorCyan = { 0.2313f, 0.7372f, 0.8274f, 1.0f };
+static const Color colorWhite        = { 0.3f, 0.2f, 0.1f, 1.0f };
+static const Color colorWhiteTrue    = { 1.f,  1.f,  1.f,  1.0f };  // map names, hud etc
+//* debug colors
+static const Color colorGreen        = { 1.0f, 1.0f, 0.0f, 1.0f };
+static const Color colorBrightGreen  = { 0.0f, 0.6f, 0.0f, 1.0f };
+static const Color colorBlue         = { 0.0f, 0.0f, 1.0f, 1.0f };
+static const Color colorBrightBlue   = { 0.0f, 0.0f, 0.6f, 1.0f };
+static const Color colorRed          = { 1.0f, 0.0f, 0.0f, 1.0f };
+static const Color colorBrightRed    = { 0.6f, 0.0f, 0.0f, 1.0f };
+static const Color colorYellow       = { 0.0f, 1.0f, 1.0f, 1.0f };
+static const Color colorCyan         = { 0.23f,0.74f,0.83f,1.0f };
+
+static const Color colorBlack        = { 0.0f, 0.0f, 0.0f, 1.0f };
+static const Color colorDark         = { 0.2f, 0.2f, 0.2f, 1.0f };
+static const Color colorNull         = { 0.0f, 0.0f, 0.0f, 0.0f };
+static const Color backgroundColor   = { 1.0f, 1.0f, 1.0f, 0.2f };
+// static const Color highlightColor = { 1.0f, 0.6f, 0.0f, 0.6f };
 
 inline void FadeIn (float& value, float frac)
 {

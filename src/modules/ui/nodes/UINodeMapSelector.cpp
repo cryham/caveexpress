@@ -49,6 +49,12 @@ bool UINodeMapSelector::onSelect (const std::string& data)
 	return true;
 }
 
+static const Color colorStars[4]  = {
+	{ 0.4f, 0.4f, 0.3f, 0.8f },
+	{ 0.3f, 0.25f,0.2f, 0.7f },
+	{ 0.25f,0.15f,0.1f, 0.6f },
+	{ 0.2f, 0.1f, 0.1f, 0.5f }};
+
 void UINodeMapSelector::renderSelectorEntry (int index, const std::string& data, int x, int y, int colWidth,
 		int rowHeight, float alpha) const
 {
@@ -64,20 +70,42 @@ void UINodeMapSelector::renderSelectorEntry (int index, const std::string& data,
 		title = map->getName();
 	}
 
+	//*  image, stars  ***  ----
 	const TexturePtr t = getIcon(data);
-	if (_campaignManager != nullptr) {
+	if (_campaignManager != nullptr)
+	{
 		const CampaignPtr& campaignPtr = _campaignManager->getActiveCampaign();
 		const CampaignMap *map = campaignPtr->getMapById(data);
-		if (map != nullptr && !map->isLocked()) {
-			const BitmapFontPtr& font = getFont(HUGE_FONT);
-			const std::string points = string::toString(map->getFinishPoints());
-			const int fontX = std::max(x, x + colWidth / 2 - font->getTextWidth(points) / 2);
-			const int fontHeight = font->getTextHeight(points);
-			const int fontY = y + fontHeight/2;
-			if (t)
-				renderImage(t, x, y, colWidth, rowHeight - fontHeight, alpha * 0.5f);
-			font->printMax(points, colorWhiteTrue, fontX, fontY, colWidth);
-		} else if (t) {
+		if (map != nullptr && !map->isLocked())
+		{
+			const BitmapFontPtr& font = getFont(LARGE_FONT);
+			// const BitmapFontPtr& font = getFont(HUGE_FONT);
+			
+			std::string str = string::toString(map->getFinishPoints());// + "\nAbc";
+			str += "\n";
+			int stars = map->getStars();
+			for (int i=0; i < stars; ++i)
+				str += "*";
+
+			// todo: bird, npcs, n pkgs, n taxi
+			// str += "\n";
+			// str += string::toString(map->_packages);
+			// map->getPackageCount();
+
+			// const int fontX = std::max(x, x + colWidth / 2 - font->getTextWidth(points) / 2);
+			const int fontX = x;
+			// const int fontHeight = font->getTextHeight(points);
+			const int fontY = y;// + fontHeight/2;
+			
+			if (t)  // stars backgr
+				renderImage(t, x, y, colWidth, rowHeight -12 /*- fontHeight*/, alpha * 0.2f);  // dim
+
+			renderFilledRect(x, y, colWidth, rowHeight,
+				_selectedIndex == index ? colorGrayAlpha : colorStars[stars]);
+			//  points
+			font->printMax(str, colorWhite, fontX, fontY, colWidth);
+		}
+		else if (t) {
 			renderImage(t, x, y, colWidth, rowHeight, alpha);
 		}
 	} else if (t) {
@@ -87,6 +115,7 @@ void UINodeMapSelector::renderSelectorEntry (int index, const std::string& data,
 /*	if (_selectedIndex != index)
 		return;*/
 
+	//*  title bottom  ----
 	if (!title.empty()) {
 		const BitmapFontPtr& font = getFont(title.length() > 15
 			? MEDIUM_FONT : HUGE_FONT);
