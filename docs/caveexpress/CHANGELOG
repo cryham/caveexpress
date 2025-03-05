@@ -129,15 +129,16 @@ Version 3.0 (CryHam fork mods)
   * Faster side flying
   * **Diving**, going underwater possible
   * Possible to fly with 4 packages (remove?)
-  * no package drop by rhino (off screen)
-  * no NPC drop by player hit (remove?)
+  * no package destroy (drop off screen) by rhino
+  * no NPC drop by player hit (remove?), still can in water
+  * instant NPC drop/walk at platform, no need to land perfectly or re-land if not
 * 2 new Environments
   * Desert and Jungle (recolored)
-* Water, particles
+* Water, **particles**
   * Water color blue
-  * Water splash particles
+  * Water splash particles (sometimes buggy, near right map side)
   * More snow and small particles
-  * Rain particles (in Jungle)
+  * **Rain** particles (in Jungle)
 * Gui
   * font **color animation**, no rotation  // colorize
   * reworked Map Selector, **6 x 4**, bigger fonts
