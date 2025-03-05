@@ -352,14 +352,16 @@ bool Map::isFailed () const
 	if (_players.empty())
 		return true;
 
-	if (_friendlyNPCLimit > 0) {
+	/*if (_friendlyNPCLimit > 0) {  //* no
 		// if we support friendly npcs in this map, and all of them are (or were) already spawned,
 		// but none is available anymore, this map is lost
 		if (_friendlyNPCCount >= _friendlyNPCLimit) {
-			if (_friendlyNPCs.empty())
+			if (_friendlyNPCs.empty()) {
+				Log::debug(LOG_GAMEIMPL, "failed because of no NPCs....");
 				return true;
+			}
 		}
-	}
+	}*/
 
 	for (PlayerListConstIter i = _players.begin(); i != _players.end(); ++i) {
 		const Player* player = *i;
@@ -520,7 +522,7 @@ bool Map::load (const std::string& name)
 		return false;
 	}
 	//ctx->save();
-	_settings = ctx->getSettings();
+	_settings = ctx->getSettings();  //*
 	_startPositions = ctx->getStartPositions();
 	_name = ctx->getName();
 	_title = ctx->getTitle();
