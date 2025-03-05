@@ -99,7 +99,7 @@ public:
 	// sets the landing spot the player is currently landed on
 	void setPlatform (Platform* entity);
 	bool isLanded () const;
-	bool isCloseOverSolid (float distance = 1.0f) const;
+	bool isCloseOverSolid (float distance = 1.0f) const;  //*
 	bool isLandedOn (const CaveMapTile *cave) const;
 	void setCrashed (const PlayerCrashReason& reason);
 	bool isCrashed () const;
@@ -215,7 +215,7 @@ inline bool Player::isTransfering(NPCFriendly *npc) const {
 
 inline bool Player::isLandedOn (const CaveMapTile *cave) const
 {
-	if (_touching == nullptr || !isLanded())
+	if (_touching == nullptr || !isLanded())  //*
 		return false;
 	return _touching->getCave() == cave;
 }

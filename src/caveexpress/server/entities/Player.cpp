@@ -10,6 +10,7 @@
 #include "caveexpress/shared/CaveExpressAchievement.h"
 #include "common/Log.h"
 #include "common/Math.h"
+#include "common/String.h"
 #include "network/INetwork.h"
 #include "common/System.h"
 #include "caveexpress/shared/constants/Density.h"
@@ -18,6 +19,9 @@
 #include "caveexpress/shared/CaveExpressCooldown.h"
 #include "caveexpress/shared/CaveExpressSoundType.h"
 #include "caveexpress/shared/constants/ConfigVars.h"
+#include "ui/UI.h"
+#include "ui/nodes/UINodePoint.h"
+#include "ui/windows/IUIMapWindow.h"
 
 namespace caveexpress {
 
@@ -152,6 +156,28 @@ inline float Player::getCompleteMass () const
 void Player::update (uint32_t deltaTime)
 {
 	IEntity::update(deltaTime);
+
+#if 0
+	//*  debug player text  --------------------
+	UINodePoint* pointsNode = UI::get().getNode<UINodePoint>(UI_WINDOW_MAP, UINODE_POINTS);
+	if (pointsNode)
+	{
+		std::string s;
+		for (int i=0; i < 6; ++i)
+			s += "\n";
+		// s += isTouchingWater();
+		s += isLanded() ? "landed: 1" : "landed: 0";
+		s += "\n";
+		s += !_touching ? "touch: no" :
+			!_touching->getCave() ? "touch: no cave" :
+			"touch: "+ string::toString(_touching->getCave()->getCaveNumber());
+		s += "\n";
+		s += "pkg: " + string::toString(_map.getPackageCount());  // left to do
+		s += "  npc: " + string::toString(_map.getNpcCount());
+		
+		pointsNode->setStr(s);
+	}
+#endif
 
 	if (isCrashed()) {
 		// before we crash, we should drop the stuff we are carrying
