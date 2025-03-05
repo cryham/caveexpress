@@ -42,10 +42,10 @@ IUIMapEditorWindow::IUIMapEditorWindow (IFrontend *frontend, IUINodeMapEditor* e
 }
 
 void IUIMapEditorWindow::init(IMapManager& mapManager) {
-	setBackgroundColor(colorDark);
+	setBackgroundColor(colorBlack);  //*
 
 	int cols = 6;
-	int rows = 6;
+	int rows = 9;
 
 	if (isSmallScreen()) {
 		cols = 3;

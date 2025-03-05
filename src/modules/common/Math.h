@@ -75,6 +75,7 @@ inline bool Between (T value, T min, T max)
 	return value >= min && value <= max;
 }
 
+//  UI colors  -----------------------------------------------------
 typedef float Color[4];
 
 static const Color colorGrayAlpha40  = { 0.57f,0.87f,0.97f,0.4f };
@@ -83,6 +84,13 @@ static const Color colorGray         = { 0.4f, 0.8f, 0.3f, 1.0f };
 static const Color colorWhiteAlpha80 = { 1.0f, 1.0f, 1.0f, 0.8f };
 static const Color colorWhite        = { 0.3f, 0.2f, 0.1f, 1.0f };
 static const Color colorWhiteTrue    = { 1.f,  1.f,  1.f,  1.0f };  // map names, hud etc
+
+static const Color colorBlack        = { 0.0f, 0.0f, 0.0f, 1.0f };
+static const Color colorDark         = { 0.2f, 0.2f, 0.2f, 1.0f };
+static const Color colorNull         = { 0.0f, 0.0f, 0.0f, 0.0f };
+static const Color backgroundColor   = { 1.0f, 1.0f, 1.0f, 0.2f };
+// static const Color highlightColor = { 1.0f, 0.6f, 0.0f, 0.6f };
+
 //* debug colors
 static const Color colorGreen        = { 1.0f, 1.0f, 0.0f, 1.0f };
 static const Color colorBrightGreen  = { 0.0f, 0.6f, 0.0f, 1.0f };
@@ -93,11 +101,23 @@ static const Color colorBrightRed    = { 0.6f, 0.0f, 0.0f, 1.0f };
 static const Color colorYellow       = { 0.0f, 1.0f, 1.0f, 1.0f };
 static const Color colorCyan         = { 0.23f,0.74f,0.83f,1.0f };
 
-static const Color colorBlack        = { 0.0f, 0.0f, 0.0f, 1.0f };
-static const Color colorDark         = { 0.2f, 0.2f, 0.2f, 1.0f };
-static const Color colorNull         = { 0.0f, 0.0f, 0.0f, 0.0f };
-static const Color backgroundColor   = { 1.0f, 1.0f, 1.0f, 0.2f };
-// static const Color highlightColor = { 1.0f, 0.6f, 0.0f, 0.6f };
+//  water color  ~ ~ ~ ~
+// namespace {  // todo: per theme
+// const uint8_t WATER_ALPHA = 80, WATERCOLOR[] = { 26, 45, 71, WATER_ALPHA };  // dark blue
+// const uint8_t WATER_ALPHA = 120, WATERCOLOR[] = { 56, 85, 121, WATER_ALPHA };  // dark cyan
+// const uint8_t WATER_ALPHA = 130, WATERCOLOR[] = { 56, 95, 151, WATER_ALPHA };  // cyan
+static const uint8_t WATER_ALPHA = 150, WATERCOLOR[] = { 58, 118, 181, WATER_ALPHA };  // skyblue
+// }
+static const Color waterLineColor = 
+	{ (float)WATERCOLOR[0] / 255.0f * 1.2f,
+	  (float)WATERCOLOR[1] / 255.0f * 1.2f,
+	  (float)WATERCOLOR[2] / 255.0f * 1.2f, 1.f };
+	// WATER_ALPHA / 255.0f * 1.1f };
+static const Color waterColor =
+	{ (float)WATERCOLOR[0] / 255.0f,
+	  (float)WATERCOLOR[1] / 255.0f,
+	  (float)WATERCOLOR[2] / 255.0f, WATER_ALPHA / 255.0f };
+//-----------------------------------------------------------------
 
 inline void FadeIn (float& value, float frac)
 {

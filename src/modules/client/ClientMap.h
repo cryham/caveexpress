@@ -17,13 +17,6 @@
 #include <vector>
 #include <unordered_map>
 
-namespace {
-// const uint8_t WATER_ALPHA = 80, WATERCOLOR[] = { 26, 45, 71, WATER_ALPHA };  // dark blue
-// const uint8_t WATER_ALPHA = 120, WATERCOLOR[] = { 56, 85, 121, WATER_ALPHA };  // dark cyan
-// const uint8_t WATER_ALPHA = 130, WATERCOLOR[] = { 56, 95, 151, WATER_ALPHA };  // cyan
-const uint8_t WATER_ALPHA = 150, WATERCOLOR[] = { 58, 118, 181, WATER_ALPHA };  // skyblue
-}
-
 class ClientMap: public IMap, public IClientCallback, public IEventObserver, public IParticleEnvironment {
 public:
 	typedef std::unordered_map<uint16_t, ClientEntityPtr> ClientEntityMap;
