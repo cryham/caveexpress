@@ -69,8 +69,9 @@ void NPCFriendly::onContact (b2Contact* contact, IEntity* entity)
 			setDying(nullptr);
 		} else if (isIdle()) {
 			// hit by a player - so we will fall into the water
-			setAnimationType(getFallingAnimation());
-			_fallingTimer = _map.getTimeManager().setTimeout(500, assert_cast<NPC*, NPCFriendly*>(this), &NPC::setFalling);
+			//*  todo only if strong?
+			// setAnimationType(getFallingAnimation());
+			// _fallingTimer = _map.getTimeManager().setTimeout(500, assert_cast<NPC*, NPCFriendly*>(this), &NPC::setFalling);
 		}
 	}
 }
@@ -81,10 +82,11 @@ bool NPCFriendly::triggerTargetCaveAnnouncement (const b2Vec2& playerPos)
 	if (isSwimming() && distance > _swimmingDistance) {
 		return false;
 	}
-	if (_triggerMovement == 0) {
-		_triggerMovement = _time + 600;
-		GameEvent.announceTargetCave(getVisMask(), *this, 1200);
-		return false;
+	if (_triggerMovement == 0)  //-
+	{
+		_triggerMovement = _time + 200;  // 600
+		GameEvent.announceTargetCave(getVisMask(), *this, 1400);  // 1200
+		return true; //false;  //* ?
 	}
 	return _time > _triggerMovement;
 }
@@ -168,6 +170,7 @@ void NPCFriendly::update (uint32_t deltaTime)
 	if (targetCave != nullptr && targetCave->isUnderWater()) {
 		CaveMapTile *cave = _map.getTargetCave(getCave());
 		if (cave == nullptr) {
+			Log::info(LOG_GAMEIMPL, "--- NO target CAVE restart map ---");
 			_map.restart(2000);
 			return;
 		}
@@ -182,6 +185,7 @@ void NPCFriendly::update (uint32_t deltaTime)
 	const Map::PlayerList& players = _map.getPlayers();
 	for (Map::PlayerListConstIter i = players.begin(); i != players.end(); ++i) {
 		Player* player = *i;
+		//*  npc go
 		if (player->isFree() && player->isLandedOn(getCave())) {
 			// player is landed on our tile - walk toward him
 			if (isIdle()) {
