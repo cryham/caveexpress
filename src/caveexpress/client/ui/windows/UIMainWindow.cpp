@@ -66,12 +66,6 @@ UIMainWindow::UIMainWindow (IFrontend *frontend, ServiceProvider& serviceProvide
 		add(googlePlay);
 	}
 
-	if (System.supportsUserContent()) {
-		UINodeMainButton *editor = new UINodeMainButton(_frontend, tr("Editor"));
-		editor->addListener(UINodeListenerPtr(new OpenWindowListener(UI_WINDOW_EDITOR)));
-		panel->add(editor);
-	}
-
 	// UINodeMainButton *homepage = new UINodeMainButton(_frontend, tr("Homepage"));
 	// homepage->addListener(UINodeListenerPtr(new OpenURLListener(_frontend, "http://caveproductions.org/")));
 	// panel->add(homepage);
@@ -79,6 +73,12 @@ UIMainWindow::UIMainWindow (IFrontend *frontend, ServiceProvider& serviceProvide
 	UINodeMainButton *help = new UINodeMainButton(_frontend, tr("Help"));
 	help->addListener(UINodeListenerPtr(new OpenWindowListener(UI_WINDOW_HELP)));
 	panel->add(help);
+
+	if (System.supportsUserContent()) {
+		UINodeMainButton *editor = new UINodeMainButton(_frontend, tr("Editor"));
+		editor->addListener(UINodeListenerPtr(new OpenWindowListener(UI_WINDOW_EDITOR)));
+		panel->add(editor);
+	}
 
 #if 0
 #ifdef __EMSCRIPTEN__

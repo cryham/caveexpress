@@ -23,7 +23,7 @@ struct TextureData;
 #define HUGE_FONT "font-24"
 #define LARGE_FONT "font-48"
 
-#define DEFAULT_FONT MEDIUM_FONT
+#define DEFAULT_FONT MEDIUM_FONT  //*
 
 // class that represents a frontend for the server. This might be a console based frontend for
 // dedicated servers, as well as a rendering client for listening servers or game clients.

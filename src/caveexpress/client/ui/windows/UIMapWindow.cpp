@@ -36,12 +36,12 @@ void UIMapWindow::initHudNodes()
 	_panel->setStandardPadding();
 	_panel->setAlignment(NODE_ALIGN_TOP | NODE_ALIGN_CENTER);
 
-	UINodePoint* _points = new UINodePoint(_frontend, 150);
-	_points->setLabel("00000");
+	UINodePoint* _points = new UINodePoint(_frontend, 10);
+	_points->setLabel("0");
 	_points->setId(UINODE_POINTS);
 	_panel->add(_points);
 
-	UINodeBar* timeBar = new UINodeBar(_frontend);
+	UINodeBar* timeBar = new UINodeBar(_frontend);  //*
 	timeBar->setId(UINODE_SECONDS_REMAINING);
 	const Color timeBarColor = { 1.0f, 1.0f, 1.0f, 0.5f };
 	timeBar->setSize(barWidth, barHeight);
@@ -57,9 +57,8 @@ void UIMapWindow::initHudNodes()
 	hitpointsBar->setSize(barWidth, barHeight);
 	hitpointsBar->setBorder(true);
 	hitpointsBar->setBorderColor(colorWhite);
-	// TODO: wind indicator
-
 	_panel->add(hitpointsBar);
+	// TODO: wind indicator
 
 	UINodeSprite* livesSprite = new UINodeSprite(_frontend, spriteHeight, spriteHeight);
 	livesSprite->setId(UINODE_LIVES);
