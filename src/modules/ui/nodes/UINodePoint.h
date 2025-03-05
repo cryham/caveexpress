@@ -4,6 +4,7 @@
 
 class UINodePoint: public UINodeLabel {
 private:
+	std::string _str;
 	int _current;
 	int _points;
 	uint32_t _lastUpdate;
@@ -18,6 +19,11 @@ public:
 
 	void update (uint32_t deltaTime) override
 	{
+		if (!_str.empty())  //*
+		{
+			setLabel(_str + "\np: "+string::toString(_current));
+			return;
+		}
 		UINodeLabel::update(deltaTime);
 		if (_current == _points)
 			return;
@@ -51,5 +57,11 @@ public:
 	{
 		_current = 0;
 		_points = points;
+	}
+
+	void setStr (std::string str)
+	{
+		_str = str;
+		update(0);
 	}
 };
