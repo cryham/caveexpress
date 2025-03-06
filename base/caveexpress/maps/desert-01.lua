@@ -559,10 +559,10 @@ function initMap()
 	map:addEmitter("npc-blowing", 37.000000, 9.800000, 1, 0, "right=false")
 	map:addEmitter("tree", 43.000000, 9.000000, 1, 0, "")
 
-	map:addCave("tile-cave-desert-02", 2.000000, 5.000000)
+	map:addCave("tile-cave-desert-02", 2.000000, 5.000000, "", 3000)
 	map:addCave("tile-cave-desert-01", 13.000000, 10.000000, "", 1100)
-	map:addCave("tile-cave-desert-01", 35.000000, 11.000000)
-	map:addCave("tile-cave-desert-02", 47.000000, 1.000000)
+	map:addCave("tile-cave-desert-01", 35.000000, 11.000000, "", 2000)
+	map:addCave("tile-cave-desert-02", 47.000000, 1.000000, "", 4000)
 
 	map:setSetting("width", "51")
 	map:setSetting("height", "13")
