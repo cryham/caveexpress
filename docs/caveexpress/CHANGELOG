@@ -142,6 +142,7 @@ Version 3.0 (CryHam fork mods)
 * Gui
   * font **color animation**, no rotation  // colorize
   * reworked Map Selector, **6 x 4**, bigger fonts
+  * named uniquely all maps
   * added frame [] for current focus
   * UIMapOptions default close, no back (faster)
   * main menu no Quit or homapage
