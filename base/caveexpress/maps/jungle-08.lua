@@ -1,5 +1,5 @@
 function getName()
-	return "Village1 Stairs"
+	return "Jungle8 Zig zag"
 end
 
 function onMapLoaded()
@@ -11,31 +11,31 @@ function initMap()
 
 	math.randomseed(os.time())
 
-	for y = 0,15
+	for y = 0,13
 	do
-	for x = 0,19
+	for x = 0,13
 	do
-		map:addTile("tile-background-desert-0" .. tostring( math.random(1, 8) ), x, y)
+		map:addTile("tile-background-jungle-0" .. tostring( math.random(1, 4) ), x, y)
 	end
 	end
 
-	map:setSetting("width", "20")
-	map:setSetting("height", "16")
+	map:setSetting("width", "14")
+	map:setSetting("height", "14")
 	map:setSetting("fishnpc", "false")
 	map:setSetting("flyingnpc", "false")
 	map:setSetting("gravity", "9.81")
 	map:setSetting("introwindow", "")
 	map:setSetting("npcs", "4")
-	map:setSetting("npctransfercount", "1")  -- 1
-	map:setSetting("packagetransfercount", "2")
+	map:setSetting("npctransfercount", "3")  -- 1
+	map:setSetting("packagetransfercount", "0")
 	map:addStartPosition("4.000000", "3.000000")
 	map:setSetting("points", "100")
 	map:setSetting("referencetime", "30")
 	map:setSetting("sideborderfail", "false")
-	map:setSetting("theme", "desert")
+	map:setSetting("theme", "jungle")
 	map:setSetting("tutorial", "false")
 
-	map:setSetting("waterheight", "0.9")
+	map:setSetting("waterheight", "0.99")
 	map:setSetting("waterchangespeed", "0")
 	map:setSetting("waterrisingdelay", "0")
 	map:setSetting("waterchangespeed", "0.000000")

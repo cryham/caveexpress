@@ -7,3 +7,5 @@ c:setSetting("text", "Desert")
 -- now add all maps
 c:addMaps("desert-01")
 c:addMaps("desert-02")
+c:addMaps("desert-03")
+c:addMaps("desert-04")

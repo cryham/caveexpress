@@ -1,5 +1,5 @@
 function getName()
-	return "Village1 Stairs"
+	return "Village5 New"
 end
 
 function onMapLoaded()

@@ -1,5 +1,5 @@
 function getName()
-	return "Village1 Stairs"
+	return "Village7 New"
 end
 
 function onMapLoaded()
@@ -13,13 +13,13 @@ function initMap()
 
 	for y = 0,15
 	do
-	for x = 0,19
+	for x = 0,15
 	do
-		map:addTile("tile-background-desert-0" .. tostring( math.random(1, 8) ), x, y)
+		map:addTile("tile-background-0" .. tostring( math.random(1, 4) ), x, y)
 	end
 	end
 
-	map:setSetting("width", "20")
+	map:setSetting("width", "16")
 	map:setSetting("height", "16")
 	map:setSetting("fishnpc", "false")
 	map:setSetting("flyingnpc", "false")
@@ -32,7 +32,7 @@ function initMap()
 	map:setSetting("points", "100")
 	map:setSetting("referencetime", "30")
 	map:setSetting("sideborderfail", "false")
-	map:setSetting("theme", "desert")
+	map:setSetting("theme", "rock")
 	map:setSetting("tutorial", "false")
 
 	map:setSetting("waterheight", "0.9")
