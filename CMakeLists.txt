@@ -6,8 +6,8 @@ project(caveproductions)
 #-------------------------------------------------------------------------------
 
 option(NETWORKING "Enable networking" ON)
-option(UNITTESTS "Builds with unittests" ON)
-option(TOOLS "Builds with tools" ON)
+option(UNITTESTS "Builds with unittests" OFF)
+option(TOOLS "Builds with tools" OFF)
 option(VERBOSE "Print debug information" OFF)
 option(COVERAGE "Compile with test coverage" OFF)
 option(USE_CCACHE "Use ccache" ON)
@@ -16,12 +16,14 @@ option(USE_CCACHE "Use ccache" ON)
 # you can set this to ON and the libs dir will not be taken into account at all.
 option(FORCE_USE_SYSTEM_LIBS "Use system libs" OFF)
 option(CAVEEXPRESS "Build caveexpress" ON)
-option(CAVEPACKER "Build cavepacker" ON)
+option(CAVEPACKER "Build cavepacker" OFF)
 option(SANITIZER "Build with sanitizer support if available" OFF)
 
 #-------------------------------------------------------------------------------
 # end options
 #-------------------------------------------------------------------------------
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wignored-optimization-argument")
+	#-Wno-comment -Wno-dangling-else -Wno-deprecated-declarations -Wno-parentheses")
 
 if (NOT CMAKE_BUILD_TYPE)
 	set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Compile Type" FORCE)

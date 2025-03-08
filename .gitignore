@@ -6,6 +6,7 @@
 /tests*
 /solutiontool
 /build
+/tiledgenerator
 
 # also binaries - but more generic
 /*.exe
@@ -34,12 +35,11 @@
 /.cproject
 /.project
 /*-source.tar*
-/.idea
 
-# cryham
-.git
+# ---
 .cache
 
+# builds
 CMake*
 *.cmake
 Debug
