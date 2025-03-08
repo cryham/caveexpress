@@ -21,6 +21,8 @@ SpriteType CAVE_SIGN("cave-sign");
 SpriteType LIANE("liane");
 SpriteType GEYSER_ICE("geyser-ice");
 SpriteType GEYSER_ROCK("geyser-rock");
+SpriteType GEYSER_DESERT("geyser-desert");
+SpriteType GEYSER_JUNGLE("geyser-jungle");
 SpriteType PACKAGETARGET_ICE("packagetarget-ice");
 SpriteType PACKAGETARGET_ROCK("packagetarget-rock");
 }
