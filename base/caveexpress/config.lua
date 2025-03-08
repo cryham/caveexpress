@@ -10,7 +10,7 @@ defaultgamecontroller = true
 defaulttexturesize = "auto"
 defaultreferencetimefactor = 1.0
 defaultdamagethreshold = 3.0
-defaultnpcflyingspeed = 2.0
+defaultnpcflyingspeed = 3.0
 defaultparticles = 10000
 defaultred = 8
 defaultgreen = 8
@@ -42,7 +42,7 @@ settings = {
 	fullscreen = defaultfullscreen,
 	frontend = defaultfrontend,
 	port = 45678,
-	grabmouse = true,
+	grabmouse = false,
 	showcursor = defaultshowcursor,
 	debug = false,
 	showfps = false,
@@ -57,7 +57,7 @@ settings = {
 	referencetimefactor = defaultreferencetimefactor,
 	damagethreshold = defaultdamagethreshold,
 	fruitcollectdelayforanewlife = 15000,
-	amountoffruitsforanewlife = 4,
+	amountoffruitsforanewlife = 3,
 	fruithitpoints = 10,
 	waterparticle = true,
 	npcflyingspeed = defaultnpcflyingspeed,
@@ -128,6 +128,7 @@ else
 			SPACE = "ui_execute",
 			RETURN = "ui_execute",
 			ESCAPE = "ui_pop",
+			BACKSPACE = "ui_pop",
 			TAB = "ui_focus_next",
 		},
 		["map"] = {
@@ -151,12 +152,12 @@ else
 	keybindings["map"]["."] = "screenshot"
 end
 
-if isDebug() then
-	keybindings["map"]["BACKSPACE"] = "map_debug"
+--if isDebug() then
+	keybindings["map"]["F1"] = "map_debug"
 	keybindings["map"]["E"] = "map_open_in_editor"
-	keybindings["map"]["X"] = "kill"
-	keybindings["map"]["F"] = "finish"
-end
+	-- keybindings["map"]["X"] = "kill"
+	-- keybindings["map"]["F"] = "finish"
+--else
 
 if isAndroid() and isDebug() then
 	keybindings["map"]["VOLUMEUP"] = "map_debug"

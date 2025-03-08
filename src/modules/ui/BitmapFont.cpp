@@ -135,11 +135,19 @@ int BitmapFont::printMax (const std::string& text, const Color& color, int x, in
 			}
 			// colorize
 			const int ang = (x + fontChr->getOX()) - (y + yShift + fontHeight - fontChr->getOY()); //+ fcw + fch;
+		#if 0  // cyan yellow green
 			double cc[4] = {
 				sin((ang * 0.325 + _time * 0.121 + _rand + 1.2) / 22.0) * 0.1 + 0.9,
 				sin((ang * 0.412 + _time * 0.113 + _rand + 1.2) / 22.0) * 0.0 + 0.95,
 				sin((ang * 0.366 + _time * 0.135 + _rand + 1.2) / 22.0) * 0.2 + 0.8,
 				1.0 //cos((ang * 0.393 + _time * 0.148 + _rand + 1.2) / 22.0) * 0.1 + 0.9
+		#else  // orange red yellow
+			double cc[4] = {
+				1.0,
+				sin((ang * 0.412 + _time * 0.113 + _rand + 1.2) / 22.0) * 0.1 + 0.85,
+				sin((ang * 0.366 + _time * 0.113 + _rand + 1.2) / 22.0) * 0.2 + 0.7,
+				1.0
+		#endif
 			};
 			for (int i=0; i < 4; ++i)
 				// clr[i] = color[i] * cc[i];

@@ -1,5 +1,6 @@
 #include "CaveExpress.h"
 
+#include "common/Math.h"
 #include "common/Singleton.h"
 #include "common/ConfigManager.h"
 #include "common/Commands.h"
@@ -180,7 +181,6 @@ void CaveExpress::update (uint32_t deltaTime)
 			mapLoad(_loadDelayName);
 			return;
 		}
-
 		return;
 	}
 
@@ -293,9 +293,9 @@ void CaveExpress::init (IFrontend *frontend, ServiceProvider& serviceProvider)
 		{REFERENCE_TIME_FACTOR, "1.0", CV_NOPERSIST},
 		{FRUIT_COLLECT_DELAY_FOR_A_NEW_LIFE, "15000", CV_NOPERSIST},
 		{AMOUNT_OF_FRUITS_FOR_A_NEW_LIFE, "4", CV_NOPERSIST},
-		{FRUIT_HITPOINTS, "10", CV_NOPERSIST},
-		{WATER_PARTICLE, "false", CV_READONLY | CV_NOPERSIST},
-		{NPC_FLYING_SPEED, "2.0", CV_NOPERSIST}
+		{FRUIT_HITPOINTS, "40", CV_NOPERSIST},
+		{WATER_PARTICLE, "true", CV_READONLY | CV_NOPERSIST},
+		{NPC_FLYING_SPEED, "3.0", CV_NOPERSIST}
 	};
 
 	const int n = SDL_arraysize(gameConfigVars);

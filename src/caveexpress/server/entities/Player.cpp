@@ -460,7 +460,7 @@ bool Player::collect (CollectableEntity* entity)
 		Achievements::PICK_UP_FRUIT.unlock();
 		Achievements::COLLECT_100_FRUITS.unlock();
 		_map.sendSound(ClientIdToClientMask(getClientId()), SoundTypes::SOUND_FRUIT_COLLECTED);
-		addHitpoints(_fruitHitPoints->getIntValue());
+		addHitpoints(_fruitHitPoints->getIntValue());  //*
 		return true;
 	} else if (EntityTypes::isEgg(entityType)) {
 		_invulnerableTime = _time + Cooldowns::INVULVERABLE.getRuntime();
