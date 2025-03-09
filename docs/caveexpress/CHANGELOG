@@ -130,15 +130,15 @@ Version 3.0 (CryHam fork mods)
   * PR: **Diving**, going underwater possible
   * PR: no NPC drop by player soft hit, hard hit drops
   * PR: **instant NPC** drop/walk at platform, no need to land perfectly or re-land if not
-  * instant **package** collect
+  * instant **package** collect  // todo, particles?
   * Possible to fly with 4 packages (remove?)
   * no package destroy (drop off screen) by rhino
 * Water, **particles**
-  * Water splash particles (sometimes buggy, near right map side?)
-  * More rain, snow particles
+  * Water splash particles (sometimes buggy, near right map side?)  // todo
+  * More rain, snow particles  // todo  10000 on pc
 * Gui
-  * font **color animation**, no rotation  // colorize
-  * reworked Map Selector, **6 x 4**, bigger fonts
+  * PR: font **color animation**, no rotation  // colorize  // todo: UI option
+  * PR: reworked Map Selector, **6 x 4**, bigger fonts
   * added frame [] for current focus
   * UIMapOptions default close, no back (faster)
   * main menu no Quit or homapage
