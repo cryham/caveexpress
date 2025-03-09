@@ -56,8 +56,8 @@ Version 1.6 (2014-05-02)
 * Reworked the map and game options menus
 * Fixed a bug with the angry dinosaurs that leads to sliding in rare situations
 * Two new campaigns with new game modes
-** The first campaign is also about getting the packages indirectly to their packagetarget
-** The second (flappy) campaign is not about birds - but almost the same (Cryptic? Try it!)
+  * The first campaign is also about getting the packages indirectly to their packagetarget
+  * The second (flappy) campaign is not about birds - but almost the same (Cryptic? Try it!)
 * Translation support (english and german currently)
 * Readded android quit button
 * Changed ads handling in the free android version
@@ -117,31 +117,51 @@ Version 2.4 (2016-02-18)
 * Flying npc drops egg on death
 * Banana powerup - you can carry more than one package with it
 
-Version 2.5 (not yet released)
+Version 2.5 (2021-04-08 ?)
 * Updated box2d
 * Updated lua
 * UTF8 support
 * Fixed missing window resize events
+* Added CI builds in github actions tab
+
+Version 2.6 (not yet released)
+* Two new sceneries: jungle and desert
+* 3 new campaigns with new maps:
+  * jungle (4 maps), desert (3), letters (5)
+* Renamed all maps and campaigns
+  * Maps are named uniquely now (for multiplayer) and are starting with campaign name
+* Gameplay changes
+  * Diving, now possible to fall underwater - few later maps use it
+  * Possible to fly up with 3 packages, or even with 4 after powerup (banana)
+  * Faster flying horizontally (on PC)
+  * Faster npcs (taxi gameplay) - less strict landing, faster walk start, take or drop, announce during walk
+  * Friendly npc don't get dropped when hit from above, they will only fall after a hard hit
+* Changed water color to skyblue
+* Particles
+  * Water splashes
+  * Rain in jungle
+  * Smaller snow and more wobbly
+* Package target sound, on consuming package
+* New palm tree
 
 
 Version 3.0 (CryHam fork mods)
 * Gameplay
-  * PR: **Faster** side flying
-  * PR: **Diving**, going underwater possible
   * PR: no NPC drop by player soft hit, hard hit drops
-  * PR: **instant NPC** drop/walk at platform, no need to land perfectly or re-land if not
   * instant **package** collect  // todo, particles?
-  * Possible to fly with 4 packages (remove?)
+  * Possible to fly with 4 packages
   * no package destroy (drop off screen) by rhino
-* Water, **particles**
-  * Water splash particles (sometimes buggy, near right map side?)  // todo
+* Water, particles
   * More rain, snow particles  // todo  10000 on pc
 * Gui
   * PR: font **color animation**, no rotation  // colorize  // todo: UI option
-  * PR: reworked Map Selector, **6 x 4**, bigger fonts
   * added frame [] for current focus
   * UIMapOptions default close, no back (faster)
   * main menu no Quit or homapage
 * Defaults, for PC
   * refraction on, music off, mouse speed 2.0
 * marked code change places with `//*`
+* todo:
+  * Hud add count package, npc transfers left
+  * Map details: package, npcs - counts & icons, for selected map or also for all
+

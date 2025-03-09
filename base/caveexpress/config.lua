@@ -10,8 +10,8 @@ defaultgamecontroller = true
 defaulttexturesize = "auto"
 defaultreferencetimefactor = 1.0
 defaultdamagethreshold = 3.0
-defaultnpcflyingspeed = 3.0
-defaultparticles = 10000
+defaultnpcflyingspeed = 2.0
+defaultparticles = 100
 defaultred = 8
 defaultgreen = 8
 defaultblue = 8
@@ -34,6 +34,7 @@ elseif isHTML5() then
 else
 	defaultgamecontroller = true
 	defaultfrontend = "opengl3"
+	defaultparticles = 10000
 end
 
 settings = {
@@ -58,7 +59,7 @@ settings = {
 	damagethreshold = defaultdamagethreshold,
 	fruitcollectdelayforanewlife = 15000,
 	amountoffruitsforanewlife = 3,
-	fruithitpoints = 10,
+	fruithitpoints = 50,
 	waterparticle = true,
 	npcflyingspeed = defaultnpcflyingspeed,
 	particles = defaultparticles,
